@@ -111,6 +111,9 @@ public:
             user_stocks = data[3];
             std::cout << "Your Balance: " << user_balance << std::endl;
             std::cout << "Your Stocks: " << user_stocks << std::endl;
+            Logging log;
+            log.LogData("getAccoutInfo ");
+            RunMenu();
             get_file.close();
         }
     }
