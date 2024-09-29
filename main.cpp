@@ -62,7 +62,7 @@ public:
         switch (choise)
         {
         case 1:
-            getAccoutInfo(input_login);
+            getAccoutInfo();
             break;
         case 2:
             depositMoney();
@@ -82,34 +82,36 @@ public:
             break;
         }
     }
-    void getAccoutInfo(std::string login)
+    void getAccoutInfo()
     {
         std::string user_path = "userdata/" + input_login + ".txt";
         std::string log_path = "userdata/" + input_login + ".log";
         std::fstream get_file;
         std::string user_email, user_balance, user_stocks, user_password;
-
+        std::string str;
+        std::vector <std::string> data;
         get_file.open(user_path);
-
         if (!get_file.is_open())
         {
             std::cout << "Unexpected Error!" << std::endl;
-            RunMenu();
         }
         else
         {
-            get_file >> user_email;
-            get_file >> user_password;
-            get_file >> user_balance;
-            get_file >> user_stocks;
-            std::cout << user_email << std::endl;
-            std::cout << std::endl;
+            while (!get_file.eof())
+            {
+                str = "";
+                std::getline(get_file, str);
+                if (str != "")
+                {
+                    data.push_back(str);
+                }
+            }
+            user_email = data[0];
+            user_balance = data[2];
+            user_stocks = data[3];
             std::cout << "Your Balance: " << user_balance << std::endl;
             std::cout << "Your Stocks: " << user_stocks << std::endl;
             get_file.close();
-            Logging log;
-            log.LogData("getAccoutInfo ");
-            RunMenu();
         }
     }
     void depositMoney()
