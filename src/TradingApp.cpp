@@ -1,6 +1,6 @@
 #include "../includes/TradingApp.h"
 #include "../includes/UserAuth.h"
-std::string stocks_path = "programfiles/stocksdata.txt";
+std::string stocks_path = "../programfiles/stocksdata.txt";
 
 void TradingApp::RunMenu()
 
@@ -215,7 +215,6 @@ void TradingApp::BuyStock()
     std::fstream file;
     std::string user_path = "../userdata/" + input_login + ".txt";
     std::string log_path = "../userdata/" + input_login + ".log";
-
     userdata.open(user_path);
     stockdata.open(stocks_path);
     std::vector <std::string> user_data;
@@ -229,7 +228,6 @@ void TradingApp::BuyStock()
     int stock_choice;
     int curr_balance;
     int count = 1;
-
     if (!stockdata.is_open())
     {
         std::cout << "Unexpected Error!" << std::endl;
@@ -331,7 +329,6 @@ void TradingApp::sellStock()
     std::map <std::string, std::string> stocks_info;
     std::vector <std::string> data;
     std::vector <std::string> temp_data;
-
     std::string user_path = "../userdata/" + input_login + ".txt";
     std::string log_path = "../userdata/" + input_login + ".log";
     userdata_read.open(user_path);
