@@ -2,6 +2,6 @@
 
 int main() {
     Menu run;
-    run.RunMenu();
+    run.RunStartMenu();
     return 0;
 }

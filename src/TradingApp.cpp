@@ -2,8 +2,7 @@
 #include "../includes/UserAuth.h"
 std::string stocks_path = "../programfiles/stocksdata.txt";
 
-void TradingApp::RunMenu()
-
+void TradingApp::RunMainMenu()
 {
     std::cout << "_________________________\n";
     std::cout << "|                       |\n";
@@ -81,7 +80,7 @@ void TradingApp::getAccoutInfo()
         std::cout << "Your Stocks: " << user_stocks << std::endl;
         Logging log;
         log.LogData("getAccoutInfo ");
-        RunMenu();
+        RunMainMenu();
         get_file.close();
     }
 }
@@ -161,7 +160,7 @@ void TradingApp::depositMoney()
                 std::cout << "Payment successful!" << std::endl;
                 Logging log;
                 log.LogData("DepositMoney " + deposit_amount);
-                RunMenu();
+                RunMainMenu();
             break;
         case 2:
             std::cout << "Enter phone number" << std::endl;
@@ -205,7 +204,7 @@ void TradingApp::depositMoney()
                 file.close();
                 std::cout << "Payment successful!" << std::endl;
                 log.LogData("DepositMoney " + deposit_amount);
-                RunMenu();  
+                RunMainMenu();  
                 break;
         default:
             break;
@@ -313,7 +312,7 @@ void TradingApp::BuyStock()
         file.close();
         Logging log;
         log.LogData("BuyStocks " + user_stock_choice);
-        RunMenu();
+        RunMainMenu();
     }
     
 }
@@ -436,7 +435,7 @@ void TradingApp::sellStock()
     userdata_write.close(); 
     Logging log;
     log.LogData("SellStock " + stock_choice);
-    RunMenu();
+    RunMainMenu();
 }
 void TradingApp::checkTransactions()
 {
@@ -460,7 +459,7 @@ void TradingApp::checkTransactions()
             }
         }
     }
-    RunMenu();
+    RunMainMenu();
 }
 
 void TradingApp::addStocks() {
@@ -487,6 +486,6 @@ void TradingApp::addStocks() {
             std::getline(std::cin, user_input); 
         }
         file.close();
-        RunMenu();
+        RunMainMenu();
     }
 }

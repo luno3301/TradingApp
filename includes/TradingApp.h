@@ -11,7 +11,7 @@
 class TradingApp
 {
 public:
-    void RunMenu();
+    void RunMainMenu();
     void getAccoutInfo();
     void depositMoney();
     void BuyStock();

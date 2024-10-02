@@ -37,7 +37,7 @@ int UserAuth::LogIn()
             Logging log;
             log.LogData("LogIn " + input_login);
             TradingApp app;
-            app.RunMenu();
+            app.RunMainMenu();
             return 0;
         }
     }

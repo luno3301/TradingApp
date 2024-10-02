@@ -1,6 +1,6 @@
 #include "../includes/Menu.h"
 
-int Menu::RunMenu()
+int Menu::RunStartMenu()
     {
         std::cout << "__________________" << std::endl;
         std::cout << "| Luno Trade App!|" << std::endl;

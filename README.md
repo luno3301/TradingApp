@@ -8,18 +8,40 @@ Trading App
 │ └── tradingapp.exe
 ├── includes/
 │   ├── Logging.h
+|   |   ├── LogData()
+│   |   └── containsWord()
+│   |
 │   ├── Menu.h
+|   |   └── RunStartMenu()
+│   |
 │   ├── TradingApp.h
+|   |   ├── RunMainMenu()
+|   |   ├── getAccoutInfo()
+|   |   ├── depositMoney()
+|   |   ├── BuyStock()
+|   |   ├── sellStock()
+|   |   ├── addStocks()
+│   |   └── checkTransactions()
+│   |
 │   ├── ValidateData.h
+|   |   ├── ValidatePassword()
+|   |   ├── ValidateLogin()
+|   |   ├── ValidateEmail()
+|   |   └── ValidateStockInput()
 │   └── UserAuth.h
+|       ├── LogIn()
+|       └── SignUp()
+│   
 ├── programfiles/
 │   └── stocksdata.txt
+│   
 ├── src/
 │   ├── Logging.cpp
 │   ├── Menu.cpp
 │   ├── TradingApp.cpp
 │   ├── ValidateData.cpp
-│   └── UserAuth.cpp
+│   └── UserAuth.   
+│   
 └── userdata/
     ├── uesrname.log
     └── username.txt

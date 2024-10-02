@@ -6,7 +6,7 @@
 class Menu
 {
 public:
-    int RunMenu();
+    int RunStartMenu();
 };
 
 #endif
