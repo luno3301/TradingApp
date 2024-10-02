@@ -73,3 +73,41 @@ bool ValidateData::ValidateEmail(std::string email)
     }
     return ContainsDog && ContainsDot;
 }
+bool ValidateData::ValidateStockInput(std::string stock) {
+    std::vector <std::string> data;
+    std::string word;
+    char symbol;
+    for (size_t i = 0; i < stock.size(); i++)
+    {
+        symbol = stock[i];
+        if (symbol != ' ')
+        {
+            word += symbol;
+        }
+        else if (word != "")
+        {
+            data.push_back(word);
+            word.clear();
+        }
+    }
+    data.push_back(word);
+    if (data.size() != 2)
+    {
+        return false;
+    }
+    
+    bool flag = true;
+    for (size_t i = 0; i < data[1].size(); i++)
+    {
+        symbol = data[1][i];
+        if (symbol >= '0' && symbol <= '9')
+        {
+            flag = true;
+        }
+        else {
+            return false;
+            break;
+        }
+    }
+    return true;
+}

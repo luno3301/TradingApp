@@ -17,6 +17,7 @@ public:
     void BuyStock();
     void sellStock();
     void checkTransactions();
+    void addStocks();
 };
 
 #endif

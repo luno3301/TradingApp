@@ -16,6 +16,7 @@ void TradingApp::RunMenu()
     std::cout << "|  3. Buy Stocks        |\n";
     std::cout << "|  4. Sell Stocks       |\n";
     std::cout << "|  5. Transitions List  |\n";
+    std::cout << "|  6. Add Stocks        |\n";
     std::cout << "|_______________________|\n";
     std::cout << "Select a menu item(1-5): ";
     std::cout << std::endl;
@@ -38,6 +39,9 @@ caseWrongKey:
         break;
     case 5:
         checkTransactions();
+        break;
+    case 6:
+        addStocks();
         break;
     default:
         std::cout << "Wrong Button! Try again" << std::endl;
@@ -457,4 +461,32 @@ void TradingApp::checkTransactions()
         }
     }
     RunMenu();
+}
+
+void TradingApp::addStocks() {
+    std::fstream file;
+    std::string user_input;
+    ValidateData validate;
+    file.open(stocks_path, std::fstream::app);
+    if (!file.is_open())
+    {
+        std::cout << "Fatal Error" << std::endl;
+    }
+    else {
+        std::cout << "Enter your stock info {StockName StockPrice}" << std::endl;
+        std::cout << "When you are done , enter 0" << std::endl;
+        std::getline(std::cin, user_input); 
+        while (user_input != "0")
+        {
+            if (validate.ValidateStockInput(user_input) == false)
+            {
+                std::cout << "Enter corrent stock info" << std::endl;
+                std::getline(std::cin, user_input); 
+            }
+            file << user_input << std::endl;
+            std::getline(std::cin, user_input); 
+        }
+        file.close();
+        RunMenu();
+    }
 }
