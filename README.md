@@ -40,7 +40,7 @@ Trading App
 │   ├── Menu.cpp
 │   ├── TradingApp.cpp
 │   ├── ValidateData.cpp
-│   └── UserAuth.   
+│   └── UserAuth.cpp
 │   
 └── userdata/
     ├── uesrname.log
